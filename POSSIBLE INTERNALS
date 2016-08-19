@@ -1,0 +1,839 @@
+Getting this out of the way first:
+
+#  Broadcom/Cypress 
+WICED SDK including:
+#  Express Logic   
+ThreadX - RTOS
+NetX_Duo - DUAL STACK 
+#  Cypherbridge
+uSSL - Software stack and dHTTP webserver
+#  Newlib/Libgloss libraries to https://sourceware.org/ml/newlib/2011/msg00557.html - Package looks like 1.20 or so
+Newlib (C lib for embedded systems) https://sourceware.org/git/gitweb.cgi?p=newlib-cygwin.git
+Libgloss 
+#Atmel
+Some sort of ARMv7 or 7-E (ARM Cortex M3 or M4) based microcontroller for the WICED and a separate controller for BLE I'm thinking. 
+
+Overall it is probbably similar to the Dash Button with a bit more for the voice, TLS (although I haven't seen it used yet, will leave wireshark on a bit longer), and raw HTML gets sent. Target port seems to be in the 5040x range.
+
+
+
+
+
+C. NOTICES FOR CERTAIN SOFTWARE PACKAGES 
+
+Notices from Broadcom WICED Development Kit License Agreement
+=============================================================
+
+Express Logic
+ThreadX / NetX_Duo
+------------------
+
+Object files & headers : Licensed by Broadcom, Inc. from Express Logic, Inc.
+
+uSSL
+---- 
+
+Object files & headers : Licensed by Broadcom from Cypherbridge Systems, LLC. 
+
+Newlib 
+------
+
+The newlib subdirectory is a collection of software from several sources.
+
+Each file may have its own copyright/license that is embedded in the source file.  
+Unless otherwise noted in the body of the source file(s), the following copyright 
+notices will apply to the contents of the newlib subdirectory:
+
+(1) Red Hat Incorporated
+
+Copyright (c) 1994-2009  Red Hat, Inc. All rights reserved.
+
+This copyrighted material is made available to anyone wishing to use,
+modify, copy, or redistribute it subject to the terms and conditions
+of the BSD License.   This program is distributed in the hope that 
+it will be useful, but WITHOUT ANY WARRANTY expressed or implied, 
+including the implied warranties of MERCHANTABILITY or FITNESS FOR 
+A PARTICULAR PURPOSE.  A copy of this license is available at 
+http://www.opensource.org/licenses. Any Red Hat trademarks that are
+incorporated in the source code or documentation are not subject to
+the BSD License and may only be used or replicated with the express
+permission of Red Hat, Inc.
+
+(2) University of California, Berkeley
+
+Copyright (c) 1981-2000 The Regents of the University of California.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of the University nor the names of its contributors 
+      may be used to endorse or promote products derived from this software 
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.
+
+(3) David M. Gay (AT&T 1991, Lucent 1998)
+
+The author of this software is David M. Gay.
+
+Copyright (c) 1991 by AT&T.
+
+Permission to use, copy, modify, and distribute this software for any
+purpose without fee is hereby granted, provided that this entire notice
+is included in all copies of any software which is or includes a copy
+or modification of this software and in all copies of the supporting
+documentation for such software.
+
+THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTY.  IN PARTICULAR, NEITHER THE AUTHOR NOR AT&T MAKES ANY
+REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
+OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
+
+-------------------------------------------------------------------
+
+The author of this software is David M. Gay.
+
+Copyright (C) 1998-2001 by Lucent Technologies
+All Rights Reserved
+
+Permission to use, copy, modify, and distribute this software and
+its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that the copyright notice and this
+permission notice and warranty disclaimer appear in supporting
+documentation, and that the name of Lucent or any of its entities
+not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior
+permission.
+
+LUCENT DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS.
+IN NO EVENT SHALL LUCENT OR ANY OF ITS ENTITIES BE LIABLE FOR ANY
+SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
+IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+
+(4) Advanced Micro Devices
+
+Copyright 1989, 1990 Advanced Micro Devices, Inc.
+
+This software is the property of Advanced Micro Devices, Inc  (AMD)  which
+specifically  grants the user the right to modify, use and distribute this
+software provided this notice is not removed or altered.  All other rights
+are reserved by AMD.
+
+AMD MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO THIS
+SOFTWARE.  IN NO EVENT SHALL AMD BE LIABLE FOR INCIDENTAL OR CONSEQUENTIAL
+DAMAGES IN CONNECTION WITH OR ARISING FROM THE FURNISHING, PERFORMANCE, OR
+USE OF THIS SOFTWARE.
+
+So that all may benefit from your experience, please report  any  problems
+or  suggestions about this software to the 29K Technical Support Center at
+800-29-29-AMD (800-292-9263) in the USA, or 0800-89-1131  in  the  UK,  or
+0031-11-1129 in Japan, toll free.  The direct dial number is 512-462-4118.
+
+Advanced Micro Devices, Inc.
+29K Support Products
+Mail Stop 573
+5900 E. Ben White Blvd.
+Austin, TX 78741
+800-292-9263
+
+(5) [Intentionally omitted]
+
+(6) [Intentionally omitted]
+
+(7) Sun Microsystems
+
+Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+Developed at SunPro, a Sun Microsystems, Inc. business.
+Permission to use, copy, modify, and distribute this
+software is freely granted, provided that this notice is preserved.
+
+(8) Hewlett Packard
+
+(c) Copyright 1986 HEWLETT-PACKARD COMPANY
+
+To anyone who acknowledges that this file is provided "AS IS"
+without any express or implied warranty:
+    permission to use, copy, modify, and distribute this file
+for any purpose is hereby granted without fee, provided that
+the above copyright notice and this notice appears in all
+copies, and that the name of Hewlett-Packard Company not be
+used in advertising or publicity pertaining to distribution
+of the software without specific, written prior permission.
+Hewlett-Packard Company makes no representations about the
+suitability of this software for any purpose.
+
+(9) Hans-Peter Nilsson
+
+Copyright (C) 2001 Hans-Peter Nilsson
+
+Permission to use, copy, modify, and distribute this software is
+freely granted, provided that the above copyright notice, this notice
+and the following disclaimer are preserved with no changes.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.
+
+(10) Stephane Carrez (m68hc11-elf/m68hc12-elf targets only)
+
+Copyright (C) 1999, 2000, 2001, 2002 Stephane Carrez (stcarrez@nerim.fr)
+
+The authors hereby grant permission to use, copy, modify, distribute,
+and license this software and its documentation for any purpose, provided
+that existing copyright notices are retained in all copies and that this
+notice is included verbatim in any distributions. No written agreement,
+license, or royalty fee is required for any of the authorized uses.
+Modifications to this software may be copyrighted by their authors
+and need not follow the licensing terms described here, provided that
+the new terms are clearly indicated on the first page of each file where
+they apply.
+
+(11) Christopher G. Demetriou
+
+Copyright (c) 2001 Christopher G. Demetriou
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. The name of the author may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+(12) SuperH, Inc.
+
+Copyright 2002 SuperH, Inc. All rights reserved
+
+This software is the property of SuperH, Inc (SuperH) which specifically
+grants the user the right to modify, use and distribute this software
+provided this notice is not removed or altered.  All other rights are
+reserved by SuperH.
+
+SUPERH MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO
+THIS SOFTWARE.  IN NO EVENT SHALL SUPERH BE LIABLE FOR INDIRECT, SPECIAL,
+INCIDENTAL OR CONSEQUENTIAL DAMAGES IN CONNECTION WITH OR ARISING FROM
+THE FURNISHING, PERFORMANCE, OR USE OF THIS SOFTWARE.
+
+So that all may benefit from your experience, please report any problems
+or suggestions about this software to the SuperH Support Center via
+e-mail at softwaresupport@superh.com .
+
+SuperH, Inc.
+405 River Oaks Parkway
+San Jose
+CA 95134
+USA
+
+(13) Royal Institute of Technology
+
+Copyright (c) 1999 Kungliga Tekniska H�gskolan
+(Royal Institute of Technology, Stockholm, Sweden).
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+3. Neither the name of KTH nor the names of its contributors may be
+   used to endorse or promote products derived from this software without
+   specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY KTH AND ITS CONTRIBUTORS ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL KTH OR ITS CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+(14) Alexey Zelkin
+
+Copyright (c) 2000, 2001 Alexey Zelkin 
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+(15) Andrey A. Chernov
+
+Copyright (C) 1997 by Andrey A. Chernov, Moscow, Russia.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+(16) FreeBSD
+
+Copyright (c) 1997-2002 FreeBSD Project.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+(17) S. L. Moshier
+
+Author:  S. L. Moshier.
+
+Copyright (c) 1984,2000 S.L. Moshier
+
+Permission to use, copy, modify, and distribute this software for any
+purpose without fee is hereby granted, provided that this entire notice
+is included in all copies of any software which is or includes a copy
+or modification of this software and in all copies of the supporting
+documentation for such software.
+
+THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTY.  IN PARTICULAR,  THE AUTHOR MAKES NO REPRESENTATION
+OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY OF THIS
+SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
+
+(18) Citrus Project
+
+Copyright (c)1999 Citrus Project,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+(19) Todd C. Miller
+
+Copyright (c) 1998 Todd C. Miller 
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. The name of the author may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL
+THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+(20) DJ Delorie (i386)
+Copyright (C) 1991 DJ Delorie
+All rights reserved.
+
+Redistribution, modification, and use in source and binary forms is permitted
+provided that the above copyright notice and following paragraph are
+duplicated in all such forms.
+
+This file is distributed WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+(21) [Intentionally omitted]
+
+(22) [Intentionally omitted]
+
+(23) Intel (i960)
+
+Copyright (c) 1993 Intel Corporation
+
+Intel hereby grants you permission to copy, modify, and distribute this
+software and its documentation.  Intel grants this permission provided
+that the above copyright notice appears in all copies and that both the
+copyright notice and this permission notice appear in supporting
+documentation.  In addition, Intel grants this permission provided that
+you prominently mark as "not part of the original" any modifications
+made to this software or documentation, and that the name of Intel
+Corporation not be used in advertising or publicity pertaining to
+distribution of the software or the documentation without specific,
+written prior permission.
+
+Intel Corporation provides this AS IS, WITHOUT ANY WARRANTY, EXPRESS OR
+IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY
+OR FITNESS FOR A PARTICULAR PURPOSE.  Intel makes no guarantee or
+representations regarding the use of, or the results of the use of,
+the software and documentation in terms of correctness, accuracy,
+reliability, currentness, or otherwise; and you rely on the software,
+documentation and results solely at your own risk.
+
+IN NO EVENT SHALL INTEL BE LIABLE FOR ANY LOSS OF USE, LOSS OF BUSINESS,
+LOSS OF PROFITS, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES
+OF ANY KIND.  IN NO EVENT SHALL INTEL'S TOTAL LIABILITY EXCEED THE SUM
+PAID TO INTEL FOR THE PRODUCT LICENSED HEREUNDER.
+
+(24) [Intentionally omitted]
+
+(25) [Intentionally omitted]
+
+(26) Mike Barcroft
+
+Copyright (c) 2001 Mike Barcroft 
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+(27) [Intentionally omitted]
+
+(28) [Intentionally omitted]
+
+(29) [Intentionally omitted]
+
+(30) [Intentionally omitted]
+
+(31) [Intentionally omitted]
+
+(32) [Intentionally omitted]
+
+(33) [Intentionally omitted]
+
+(34) [Intentionally omitted]
+
+(35) - ARM Ltd (arm and thumb variant targets only)
+
+ Copyright (c) 2009 ARM Ltd
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the company may not be used to endorse or promote
+    products derived from this software without specific prior written
+    permission.
+
+ THIS SOFTWARE IS PROVIDED BY ARM LTD ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL ARM LTD BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+(36) [Intentionally omitted]
+
+(37) Texas Instruments Incorporated (tic6x-* targets)
+
+Copyright (c) 1996-2010 Texas Instruments Incorporated
+http://www.ti.com/
+
+ Redistribution and  use in source  and binary forms, with  or without
+ modification,  are permitted provided  that the  following conditions
+ are met:
+
+    Redistributions  of source  code must  retain the  above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    Redistributions in binary form  must reproduce the above copyright
+    notice, this  list of conditions  and the following  disclaimer in
+    the  documentation  and/or   other  materials  provided  with  the
+    distribution.
+
+    Neither the  name of Texas Instruments Incorporated  nor the names
+    of its  contributors may  be used to  endorse or  promote products
+    derived  from   this  software  without   specific  prior  written
+    permission.
+
+ THIS SOFTWARE  IS PROVIDED BY THE COPYRIGHT  HOLDERS AND CONTRIBUTORS
+ "AS IS"  AND ANY  EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT
+ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL,  EXEMPLARY,  OR CONSEQUENTIAL  DAMAGES  (INCLUDING, BUT  NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF  LIABILITY, WHETHER IN CONTRACT, STRICT  LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+(38) National Semiconductor (cr16-* and crx-* targets)
+
+Copyright (c) 2004 National Semiconductor Corporation
+
+The authors hereby grant permission to use, copy, modify, distribute,
+and license this software and its documentation for any purpose, provided
+that existing copyright notices are retained in all copies and that this
+notice is included verbatim in any distributions. No written agreement,
+license, or royalty fee is required for any of the authorized uses.
+Modifications to this software may be copyrighted by their authors
+and need not follow the licensing terms described here, provided that
+the new terms are clearly indicated on the first page of each file where
+they apply. 
+
+(39) - Adapteva, Inc. (epiphany-* targets)
+
+Copyright (c) 2011, Adapteva, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ * Neither the name of Adapteva nor the names of its contributors may be used
+   to endorse or promote products derived from this software without specific
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Sub-library LibGloss
+--------------------
+
+The libgloss subdirectory is a collection of software from several sources.
+
+Each file may have its own copyright/license that is embedded in the source 
+file.  Unless otherwise noted in the body of the source file(s), the following 
+copyright notices will apply to the contents of the libgloss subdirectory:
+
+(1) Red Hat Incorporated
+
+Copyright (c) 1994-2009  Red Hat, Inc. All rights reserved.
+
+This copyrighted material is made available to anyone wishing to use, modify,
+copy, or redistribute it subject to the terms and conditions of the BSD 
+License.   This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY expressed or implied, including the implied warranties 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  A copy of this license
+is available at http://www.opensource.org/licenses. Any Red Hat trademarks that
+are incorporated in the source code or documentation are not subject to the BSD
+License and may only be used or replicated with the express permission of 
+Red Hat, Inc.
+
+(2) University of California, Berkeley
+
+Copyright (c) 1981-2000 The Regents of the University of California.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of the University nor the names of its contributors may
+      be used to endorse or promote products derived from this software without
+      specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.
+
+(3) DJ Delorie
+
+Copyright (C) 1993 DJ Delorie
+All rights reserved.
+
+Redistribution and use in source and binary forms is permitted
+provided that the above copyright notice and following paragraph are
+duplicated in all such forms.
+
+This file is distributed WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+(4) (formerly GPL for fr30)
+
+The GPL is no longer applicable to the fr30 platform.  The piece of
+code (syscalls.c) referencing the GPL has been officially relicensed.
+
+(5) Advanced Micro Devices
+
+Copyright 1989, 1990 Advanced Micro Devices, Inc.
+
+This software is the property of Advanced Micro Devices, Inc  (AMD)  which
+specifically  grants the user the right to modify, use and distribute this
+software provided this notice is not removed or altered.  All other rights
+are reserved by AMD.
+
+AMD MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO THIS
+SOFTWARE.  IN NO EVENT SHALL AMD BE LIABLE FOR INCIDENTAL OR CONSEQUENTIAL
+DAMAGES IN CONNECTION WITH OR ARISING FROM THE FURNISHING, PERFORMANCE, OR
+USE OF THIS SOFTWARE.
+
+So that all may benefit from your experience, please report  any  problems
+or  suggestions about this software to the 29K Technical Support Center at
+800-29-29-AMD (800-292-9263) in the USA, or 0800-89-1131  in  the  UK,  or
+0031-11-1129 in Japan, toll free.  The direct dial number is 512-462-4118.
+
+Advanced Micro Devices, Inc.
+29K Support Products
+Mail Stop 573
+5900 E. Ben White Blvd.
+Austin, TX 78741
+800-292-9263
+
+(6) [Intentionally omitted]
+ 
+(7) [Intentionally omitted]
+
+(8) Sun Microsystems
+
+Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+Developed at SunPro, a Sun Microsystems, Inc. business.
+Permission to use, copy, modify, and distribute this
+software is freely granted, provided that this notice is preserved.
+
+(9) Hewlett Packard
+
+(c) Copyright 1986 HEWLETT-PACKARD COMPANY
+
+To anyone who acknowledges that this file is provided "AS IS"
+without any express or implied warranty:
+
+permission to use, copy, modify, and distribute this file
+for any purpose is hereby granted without fee, provided that
+the above copyright notice and this notice appears in all
+copies, and that the name of Hewlett-Packard Company not be
+used in advertising or publicity pertaining to distribution
+of the software without specific, written prior permission.
+Hewlett-Packard Company makes no representations about the
+suitability of this software for any purpose.
+
+(10) Hans-Peter Nilsson
+
+Copyright (C) 2001 Hans-Peter Nilsson
+
+Permission to use, copy, modify, and distribute this software is
+freely granted, provided that the above copyright notice, this notice
+and the following disclaimer are preserved with no changes.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.
+
+(11) [Intentionally omitted]
+
+(12) [Intentionally omitted]
+
+(13) [Intentionally omitted]
+
+(14) - National Semiconductor Corporation
+
+Copyright (c) 2004 National Semiconductor Corporation
+
+The authors hereby grant permission to use, copy, modify, distribute,
+and license this software and its documentation for any purpose, provided
+that existing copyright notices are retained in all copies and that this
+notice is included verbatim in any distributions. No written agreement,
+license, or royalty fee is required for any of the authorized uses.
+Modifications to this software may be copyrighted by their authors
+and need not follow the licensing terms described here, provided that
+the new terms are clearly indicated on the first page of each file where
+they apply.
+
+(15) [Intentionally omitted]
+
+ARM Cortex Microcontroller Software Interface Standard "CMSIS"
+--------------------------------------------------------------
+
+\Wiced\Platform\common\ARM_Cortex_M3\CMSIS\core_cm3.h 
+\Wiced\Platform\common\ARM_Cortex_M3\CMSIS\core_cmFunc.h 
+\Wiced\Platform\common\ARM_Cortex_M3\CMSIS\core_cmInstr.h 
+\Wiced\Platform\common\ARM_Cortex_M3\CMSIS\CMSIS_ELUA.pdf   
+
+
+Atmel Software Framework including SAM4S Peripheral Library Drivers
+------------------------------------------------------------------- 
+
+http://www.atmel.com/Images/asf-releasenotes-3.7.3.pdf 
+
+Atmel 8/32 bits Atmel Microcontrollers Rlease ASF-3.11
+
+Disclaimer and Credits
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this 
+list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation and/or 
+other materials provided with the distribution.
+
+3. The name of Atmel may not be used to endorse or promote products derived from 
+this software without specific prior written permission.
+
+4. This software may only be redistributed and used in connection with an Atmel 
+microcontroller product.
+
+THIS SOFTWARE IS PROVIDED BY ATMEL "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS 
+FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY AND SPECIFICALLY 
+DISCLAIMED. IN NO EVENT SHALL ATMEL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
+DAMAGE.
