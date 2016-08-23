@@ -1,5 +1,7 @@
 # NewDash - 
 
+https://medium.com/@jimzv/obvious-sex-joke-aside-this-is-pretty-cool-3767d3167aaa has pictures and more HD breakdown stuff.
+
 (Amazon Dash(tm) aka Dash Wand OR83YV)
 
 Seeing what else the Dash can do
