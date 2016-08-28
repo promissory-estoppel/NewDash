@@ -1,0 +1,56 @@
+Jim Zhou
+https://github.com/promissory-estoppel
+
+Modeled after: https://mpetroff.net/wp-content/uploads/2015/05/chip-markings.txt
+
+August 2016
+Amazon Dash(tm) OR83YV
+FCC ID: https://fccid.io/2ABD7-5363
+
+Orientation: Rectangle with additional rectangle model mounted on plastic
+
+Top and bottom chips are connected directly via socket, additional module physically touching but not connected to lower module except via cable
+
+Software licensing indicates the use of: BROADCOM (CYPRESS) WICED SDK, 1.20, FOR CORTEX-M3. AMTEL SAM4S PERPHERAL LIBS.
+
+NOTE: DUE TO POOR TYPEFACE SELECTION AND SIZE the number one (1), lowercase L (l), and uppercase I may all look the same. 6 and G are remarkably alike as well.
+
+
+Chip markings
+[photo]
+S1 - Directly behind ARM7 Cortex-M3
+
+RU OASIS BVI-01
+94V-0 E9961
+1408
+
+S2 (Directly behind Broadcom module)
+
+J1 - 10 connectors
+
+U4
+25Q32FVTIG
+1338
+8324
+4N300
+
+C28 - Linked to RT113 on other side
+
+REVERSE
+TP1
+TP2
+TP3 (All round) - unconnected
+16 pin Male connector
+
+Y2
+26.000 41 P8
+
+C4 
+C8
+C15
+C19
+All occupied, no markings
+
+Faint MA3Y.
+
+To be continued 
